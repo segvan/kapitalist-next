@@ -8,7 +8,7 @@ function Login() {
           <div className="column is-6 is-offset-3 is-desktop">
             <h3 className="title">Kapitalist</h3>
             <div className="box">
-              <LoginForm />
+              <LoginForm/>
             </div>
             <div className="has-text-right">
               <a className="has-text-grey" href="">

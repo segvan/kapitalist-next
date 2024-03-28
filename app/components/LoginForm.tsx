@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { LOGIN_REDIRECT_QS_NAME } from "@/libs/auth";
+import {useState} from "react";
+import {useRouter, useSearchParams} from "next/navigation";
+import {LOGIN_REDIRECT_QS_NAME} from "@/libs/auth";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -17,7 +17,7 @@ export default function LoginForm() {
 
     const res = await fetch("/api/login", {
       method: "POST",
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({username, password}),
     });
 
     const responseData = await res.json();

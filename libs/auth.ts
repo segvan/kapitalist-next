@@ -1,4 +1,4 @@
-import { jwtVerify } from "jose";
+import {jwtVerify} from "jose";
 
 export const SESSION_COOKIE_NAME = "session";
 export const USERID_HEADER_NAME = "x-authenticated-userid";
@@ -15,7 +15,7 @@ export function getJwtSecretKey(): Uint8Array {
 
 export async function verifyJwtToken(token: string): Promise<any | null> {
   try {
-    const { payload } = await jwtVerify(token, getJwtSecretKey());
+    const {payload} = await jwtVerify(token, getJwtSecretKey());
     return payload;
   } catch (error) {
     return null;

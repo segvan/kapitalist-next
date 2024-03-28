@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 
 export default function JobsHistory() {
   const [jobsData, setJobsData] = useState<any>({});
@@ -9,11 +9,12 @@ export default function JobsHistory() {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("/api/jobs-history", {
-        next: { revalidate: 0 },
+        next: {revalidate: 0},
       });
       const data = await response.json();
       setJobsData(data);
     }
+
     fetchData();
   }, []);
 
@@ -27,22 +28,22 @@ export default function JobsHistory() {
 
       <table className="table is-narrow is-hoverable">
         <tbody>
-          <tr>
-            <td>Trade History Bot: </td>
-            <td>{parseDate(jobsData.TradeHistoryBot)}</td>
-          </tr>
-          <tr>
-            <td>Price Change Bot: </td>
-            <td>{parseDate(jobsData.PriceChangeBot)}</td>
-          </tr>
-          <tr>
-            <td>Prices Bot: </td>
-            <td>{parseDate(jobsData.PricesBot)}</td>
-          </tr>
-          <tr>
-            <td>DCA Bot: </td>
-            <td>{parseDate(jobsData.DcaBot)}</td>
-          </tr>
+        <tr>
+          <td>Trade History Bot:</td>
+          <td>{parseDate(jobsData.TradeHistoryBot)}</td>
+        </tr>
+        <tr>
+          <td>Price Change Bot:</td>
+          <td>{parseDate(jobsData.PriceChangeBot)}</td>
+        </tr>
+        <tr>
+          <td>Prices Bot:</td>
+          <td>{parseDate(jobsData.PricesBot)}</td>
+        </tr>
+        <tr>
+          <td>DCA Bot:</td>
+          <td>{parseDate(jobsData.DcaBot)}</td>
+        </tr>
         </tbody>
       </table>
     </div>

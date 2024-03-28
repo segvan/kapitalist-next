@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import {NextRequest, NextResponse} from "next/server";
 import {
   LOGIN_REDIRECT_QS_NAME,
   SESSION_COOKIE_NAME,
@@ -22,7 +22,7 @@ export const config = {
 export async function middleware(request: NextRequest) {
   const token = await isAuthenticated(request);
   if (!token) {
-    const { nextUrl, url } = request;
+    const {nextUrl, url} = request;
     const searchParams = new URLSearchParams(nextUrl.searchParams);
     searchParams.set(LOGIN_REDIRECT_QS_NAME, nextUrl.pathname);
     const response = NextResponse.redirect(

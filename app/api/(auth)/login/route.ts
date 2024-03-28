@@ -1,9 +1,9 @@
-import { NextResponse } from "next/server";
-import { LoginData, User } from "@/app/models";
-import { createHash } from "crypto";
-import { SignJWT } from "jose";
-import { SESSION_COOKIE_NAME, getJwtSecretKey } from "@/libs/auth";
-import { ErrorResponse } from "@/libs/responseHelpers";
+import {NextResponse} from "next/server";
+import {LoginData, User} from "@/app/models";
+import {createHash} from "crypto";
+import {SignJWT} from "jose";
+import {SESSION_COOKIE_NAME, getJwtSecretKey} from "@/libs/auth";
+import {ErrorResponse} from "@/libs/responseHelpers";
 
 export async function POST(request: Request) {
   let loginData: LoginData;
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
   const token = await new SignJWT({
     sub: user.email,
   })
-    .setProtectedHeader({ alg: "HS256" })
+    .setProtectedHeader({alg: "HS256"})
     .setIssuedAt()
     .setExpirationTime(`${exp}s`)
     .sign(getJwtSecretKey());
