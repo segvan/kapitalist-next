@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Loading() {
+export default async function Loading() {
   return (
     <div className="hero is-fullheight">
       <div className="hero-body">

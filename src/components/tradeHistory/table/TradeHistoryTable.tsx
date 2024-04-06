@@ -1,12 +1,11 @@
 "use client";
 
-import "./TradeHistory.css";
+import "./TradeHistoryTable.css";
 import React from "react";
-import {useState, useEffect} from "react";
-import Loading from "./Loading";
+import {useState} from "react";
+import TradeModel from "../TradeModel";
 
-export default function TradeHistory() {
-  const [tradesData, setTradesData] = useState<any>({});
+export default function TradeHistoryTable({data}: TradeHistoryTableProps) {
   const [visible, setVisible] = useState(false);
 
   const columnToggle = visible ? "column-visible" : "column-hidden";
@@ -15,34 +14,15 @@ export default function TradeHistory() {
     setVisible((prevState) => !prevState);
   };
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch("/api/trade-history", {
-        next: {revalidate: 0},
-      });
-      const data = await response.json();
-      setTradesData(data);
-    }
-
-    fetchData();
-  }, []);
-
-  if (!tradesData) {
-    return <Loading/>;
-  }
-
-  const props = Object.keys(tradesData);
-
-  if (props.length === 0) {
-    return <Loading/>;
+  if (!data) {
+    return;
   }
 
   let invested = 0;
   let current_val = 0;
-
-  for (var prop in tradesData) {
-    invested += tradesData[prop].quoteQty;
-    current_val += tradesData[prop].current_total_amount;
+  for (const item of data) {
+    invested += item.QuoteQty;
+    current_val += item.CurrentTotalAmount;
   }
 
   const earnings = current_val - invested;
@@ -130,52 +110,51 @@ export default function TradeHistory() {
         </tr>
         </thead>
         <tbody>
-        {props.map((prop) => (
-          <tr key={prop}>
-            <td>{prop}</td>
+        {data.map((trade) => (
+          <tr key={trade.Symbol}>
+            <td>{trade.Symbol}</td>
             <td className={columnToggle}>
-              {((tradesData[prop].quoteQty / invested) * 100).toFixed(2)}
+              {((trade.QuoteQty / invested) * 100).toFixed(2)}
             </td>
             <td className={columnToggle}>
-              {tradesData[prop].quoteQty.toFixed(2)}
+              {trade.QuoteQty.toFixed(2)}
             </td>
             <td className={columnToggle}>
-              {tradesData[prop].current_price.toFixed(2)}
+              {trade.CurrentPrice.toFixed(2)}
             </td>
             <td className={columnToggle}>
-              {tradesData[prop].avg_price.toFixed(2)}
+              {trade.AvgPrice.toFixed(2)}
             </td>
-            <td className={columnToggle}>{tradesData[prop].qty}</td>
+            <td className={columnToggle}>{trade.Qty}</td>
             <td
               className={
                 "has-text-white " +
-                (tradesData[prop].current_total_amount >=
-                tradesData[prop].quoteQty
+                (trade.CurrentTotalAmount >= trade.QuoteQty
                   ? "has-background-success"
                   : "has-background-danger")
               }
             >
-              {tradesData[prop].current_total_amount.toFixed(2)}
+              {trade.CurrentTotalAmount.toFixed(2)}
             </td>
             <td
               className={
                 "has-text-white " +
-                (tradesData[prop].total_earnings >= 0
+                (trade.TotalEarnings >= 0
                   ? "has-background-success"
                   : "has-background-danger")
               }
             >
-              {tradesData[prop].total_earnings.toFixed(2)}
+              {trade.TotalEarnings.toFixed(2)}
             </td>
             <td
               className={
                 "has-text-white " +
-                (tradesData[prop].total_difference >= 0
+                (trade.TotalDifference >= 0
                   ? "has-background-success"
                   : "has-background-danger")
               }
             >
-              {tradesData[prop].total_difference.toFixed(2)} %
+              {trade.TotalDifference.toFixed(2)} %
             </td>
           </tr>
         ))}
@@ -184,3 +163,7 @@ export default function TradeHistory() {
     </div>
   );
 }
+
+export type TradeHistoryTableProps = {
+  data: TradeModel[];
+};

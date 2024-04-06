@@ -1,9 +1,9 @@
 import {NextResponse} from "next/server";
-import {LoginData, User} from "@/app/models";
 import {createHash} from "crypto";
 import {SignJWT} from "jose";
-import {SESSION_COOKIE_NAME, getJwtSecretKey} from "@/libs/auth";
-import {ErrorResponse} from "@/libs/responseHelpers";
+import {SESSION_COOKIE_NAME, getJwtSecretKey} from "@/src/helpers/auth";
+import {ErrorResponse} from "@/src/helpers/responseHelpers";
+import {LoginData, User} from "../models";
 
 export async function POST(request: Request) {
   let loginData: LoginData;

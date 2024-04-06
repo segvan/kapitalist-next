@@ -2,7 +2,7 @@
 
 import {useState} from "react";
 import {useRouter, useSearchParams} from "next/navigation";
-import {LOGIN_REDIRECT_QS_NAME} from "@/libs/auth";
+import {LOGIN_REDIRECT_QS_NAME} from "@/src/helpers/auth";
 
 export default function LoginForm() {
   const router = useRouter();

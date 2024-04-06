@@ -10,21 +10,20 @@ export const metadata: Metadata = {
   description: "Kapitalist web site",
 };
 
-export default function RootLayout({
-                                     children,
-                                   }: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({children,}: { children: React.ReactNode; }) {
   return (
     <html lang="en">
     <head>
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1"
-      ></meta>
+      <title>Kapitalist</title>
+      <meta charSet="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
       <link rel="manifest" href="manifest.json"/>
     </head>
-    <body className={inter.className}>{children}</body>
+    <body className={inter.className}>
+    <section className="section py-4 px-2">
+      {children}
+    </section>
+    </body>
     </html>
   );
 }

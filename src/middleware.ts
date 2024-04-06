@@ -1,10 +1,5 @@
 import {NextRequest, NextResponse} from "next/server";
-import {
-  LOGIN_REDIRECT_QS_NAME,
-  SESSION_COOKIE_NAME,
-  USERID_HEADER_NAME,
-  verifyJwtToken,
-} from "./libs/auth";
+import {LOGIN_REDIRECT_QS_NAME, SESSION_COOKIE_NAME, USERID_HEADER_NAME, verifyJwtToken,} from "@/src/helpers/auth";
 
 export const config = {
   matcher: [
@@ -46,7 +41,5 @@ const isAuthenticated = async (request: NextRequest): Promise<any | null> => {
     return null;
   }
 
-  const result = await verifyJwtToken(token);
-
-  return result;
+  return await verifyJwtToken(token);
 };
