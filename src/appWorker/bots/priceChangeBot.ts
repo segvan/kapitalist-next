@@ -68,6 +68,10 @@ export type Ticker = {
   PriceChangePercent: number
 };
 
-bot().catch(async (e) => {
-  await printError("Prices Change Bot Exception", e);
-});
+const run = async () => {
+  await bot().catch(async (e) => {
+    await printError("Prices Change Bot Exception", e);
+  });
+};
+
+export {run};

@@ -41,7 +41,7 @@ const printError = async (message: string, exception: any): Promise<void> => {
   await telegramClient.sendMessage(errorMessage);
 };
 
-async function runInBatches<T>(collection: T[], callback: (batch: T) => Promise<void>): Promise<void> {
+async function runInBatches<T>(collection: T[], callback: (arg: T) => Promise<void>): Promise<void> {
   let collectionCopy = collection.slice();
   while (collectionCopy.length) {
     const tasks = collectionCopy

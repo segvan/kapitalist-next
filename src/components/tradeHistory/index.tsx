@@ -2,8 +2,6 @@ import React from "react";
 import {db} from "@/src/db";
 import TradeHistoryTable from "./table/TradeHistoryTable";
 
-//export const dynamic = "force-dynamic";
-
 export default async function TradeHistory() {
 
   const tradesData = await db.tradesAggr.findMany();

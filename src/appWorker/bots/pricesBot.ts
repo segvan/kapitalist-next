@@ -42,7 +42,7 @@ export type Price = {
   Price: number;
 };
 
-async function bot(): Promise<void> {
+const bot = async (): Promise<void> => {
   const symbols = await getSymbols();
   const prices = await getPrices(symbols);
 
@@ -51,6 +51,10 @@ async function bot(): Promise<void> {
   await saveJobRunTime("PricesBot");
 }
 
-bot().catch(async (e) => {
-  await printError("Prices Bot Exception", e);
-});
+const run = async () => {
+  await bot().catch(async (e) => {
+    await printError("Prices Bot Exception", e);
+  });
+};
+
+export {run};

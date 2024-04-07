@@ -38,3 +38,4 @@ app.log
 /.vscode
 /.idea/
 /*/prisma/*.db*
+/dist/

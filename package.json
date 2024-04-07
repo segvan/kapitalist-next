@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "build": "next build",
+    "workerBuild": "tsc --project worker.tsconfig.json",
+    "buildAll": "npm run build && npm run workerBuild",
     "prod": "node app.js",
-    "pricesBot": "ts-node --skipProject ./src/appWorker/bots/pricesBot.ts",
-    "priceChangeBot": "ts-node --skipProject ./src/appWorker/bots/priceChangeBot.ts",
-    "tradeHistoryBot": "ts-node --skipProject ./src/appWorker/bots/tradeHistoryBot.ts"
+    "pricesBot": "ts-node --skipProject --project worker.tsconfig.json ./src/appWorker/bots/pricesBot.ts",
+    "priceChangeBot": "ts-node --skipProject --project worker.tsconfig.json ./src/appWorker/bots/priceChangeBot.ts",
+    "tradeHistoryBot": "ts-node --skipProject --project worker.tsconfig.json ./src/appWorker/bots/tradeHistoryBot.ts"
   },
   "prisma": {
     "schema": "./src/prisma/schema.prisma",
@@ -25,13 +27,15 @@
     "node-fetch": "^2.6.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "node-cron": "^3.0.3"
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
     "@types/node-fetch": "^2.6.11",
     "@types/react": "^18.2.73",
     "@types/react-dom": "^18.2.23",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.1.4",
     "prisma": "^5.11.0",

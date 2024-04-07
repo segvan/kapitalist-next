@@ -169,6 +169,10 @@ async function bot(): Promise<void> {
   await saveJobRunTime("TradeHistoryBot");
 }
 
-bot().catch(async (e) => {
-  await printError("Trade History Bot Exception", e);
-});
+const run = async () => {
+  await bot().catch(async (e) => {
+    await printError("Trade History Bot Exception", e);
+  });
+};
+
+export {run};
