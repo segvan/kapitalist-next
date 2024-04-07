@@ -15,8 +15,8 @@
     "tradeHistoryBot": "ts-node --skipProject --project worker.tsconfig.json ./src/appWorker/bots/tradeHistoryBot.ts"
   },
   "prisma": {
-    "schema": "./src/prisma/schema.prisma",
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/prisma/seed.ts"
+    "schema": "./prisma/schema.prisma",
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./prisma/seed.ts"
   },
   "dependencies": {
     "@binance/connector-typescript": "^0.3.6",
