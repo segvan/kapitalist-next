@@ -37,5 +37,6 @@ next-env.d.ts
 app.log
 /.vscode
 /.idea/
-/*/prisma/*.db*
+/prisma/*.db*
+/prisma/migrations/
 /dist/
