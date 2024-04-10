@@ -75,3 +75,7 @@ const run = async () => {
 };
 
 export {run};
+
+// bot().catch(async (e) => {
+//   await printError("Prices Change Bot Exception", e);
+// });

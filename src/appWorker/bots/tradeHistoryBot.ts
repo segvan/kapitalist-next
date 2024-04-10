@@ -176,3 +176,7 @@ const run = async () => {
 };
 
 export {run};
+
+// bot().catch(async (e) => {
+//   await printError("Trade History Bot Exception", e);
+// });
