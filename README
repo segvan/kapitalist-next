@@ -1,9 +1,0 @@
-Prisma commands:
-
-    npx prisma generate dev
-    npx prisma migrate dev
-    npx prisma db seed
-
-Docker commands:
-    docker-compose -p postgres up  -d --build
-

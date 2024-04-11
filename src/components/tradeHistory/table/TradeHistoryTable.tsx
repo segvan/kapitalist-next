@@ -15,7 +15,7 @@ export default function TradeHistoryTable({data}: TradeHistoryTableProps) {
   };
 
   if (!data) {
-    return;
+    return <div className="trade-history"></div>;
   }
 
   let invested = 0;
