@@ -24,8 +24,9 @@ const Navbar = () => {
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
+        <div className="navbar-item">
           <Image src="/logo192.png" alt="" width={32} height={32}/>
-
+        </div>
         <a role="button" onClick={toggleNavbar} aria-label="menu" aria-expanded="false"
            className={`navbar-burger burger is-color-primary ${isActive ? "is-active" : ""}`}
            data-target="navbarMenu">
