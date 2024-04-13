@@ -3,6 +3,8 @@ import "bulma/css/bulma.css";
 import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import React from "react";
+import Navbar from "@/src/components/Navbar";
+import Footer from "@/src/components/Footer";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -21,9 +23,11 @@ export default function RootLayout({children,}: { children: React.ReactNode; }) 
       <link rel="manifest" href="manifest.json"/>
     </head>
     <body className={inter.className}>
+    <Navbar/>
     <section className="section py-4 px-2">
       {children}
     </section>
+    <Footer/>
     </body>
     </html>
   );

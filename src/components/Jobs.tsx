@@ -1,25 +1,22 @@
 import React from "react";
-import {db} from "@/src/db";
+import JobsModel from "@/src/app/jobs/JobsModel";
 
-export default async function JobsHistory() {
+export default async function Jobs({data}: JobsProps) {
 
-  const jobsData = await db.jobsHistory.findMany();
-
-  if (!jobsData) {
+  if (!data) {
     return <div className="jobs-history"></div>;
   }
 
-  const renderedJobs = jobsData.map((job) => {
+  const renderedJobs = data.map((job) => {
     return (
-      <tr key={job.id}>
-        <td>{job.name}:</td>
-        <td>{parseDate(job.timestamp)}</td>
+      <tr key={job.Id}>
+        <td>{job.Name}:</td>
+        <td>{parseDate(job.Timestamp)}</td>
       </tr>);
   });
 
   return (
     <div className="jobs-history">
-      <h4 className="subtitle">Sync Jobs Execution Time</h4>
       <table className="table is-narrow is-hoverable">
         <tbody>
         {renderedJobs}
@@ -43,3 +40,7 @@ function parseDate(date: Date): string {
 function addTrailingZero(num: number): string | number {
   return num < 10 ? "0" + num : num;
 }
+
+export type JobsProps = {
+  data: JobsModel[];
+};
