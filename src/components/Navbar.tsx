@@ -46,6 +46,18 @@ const Navbar = () => {
           <Link href="/jobs" onClick={closeNavbar} className="navbar-item">
             Jobs History
           </Link>
+
+          <div className="navbar-item has-dropdown is-hoverable">
+            <div className="navbar-link is-arrowless">
+              Administration
+            </div>
+
+            <div className="navbar-dropdown is-right is-boxed">
+              <Link href="/administration/assets" onClick={closeNavbar} className="navbar-item">
+                Assets
+              </Link>
+            </div>
+          </div>
         </div>
 
         <div className="navbar-end">

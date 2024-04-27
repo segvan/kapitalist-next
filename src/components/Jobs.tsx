@@ -4,7 +4,7 @@ import JobsModel from "@/src/app/jobs/JobsModel";
 export default async function Jobs({data}: JobsProps) {
 
   if (!data) {
-    return <div className="jobs-history"></div>;
+    return <div/>;
   }
 
   const renderedJobs = data.map((job) => {
@@ -16,13 +16,11 @@ export default async function Jobs({data}: JobsProps) {
   });
 
   return (
-    <div className="jobs-history">
-      <table className="table is-narrow is-hoverable">
-        <tbody>
-        {renderedJobs}
-        </tbody>
-      </table>
-    </div>
+    <table className="table is-narrow is-hoverable">
+      <tbody>
+      {renderedJobs}
+      </tbody>
+    </table>
   );
 }
 

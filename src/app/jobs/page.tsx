@@ -13,11 +13,12 @@ async function JobsHistory() {
   }));
 
   return (
-    <>
-      <p className="subtitle">Sync Jobs Execution Time</p>
-      <Jobs data={data}/>
-    </>
-
+    <section className="section is-fullheight-100vh">
+      <div className="container is-max-desktop">
+        <p className="subtitle">Sync Jobs Execution Time</p>
+        <Jobs data={data}/>
+      </div>
+    </section>
   );
 }
 

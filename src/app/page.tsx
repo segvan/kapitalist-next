@@ -17,13 +17,20 @@ async function Index() {
   }
 
   return (
-    <>
-      <p className="subtitle">Summary</p>
-      <TradesSummary invested={invested} currentVal={currentVal}/>
-
-      <p className="subtitle">Details</p>
-      <TradesDetails invested={invested} data={data}/>
-    </>
+    <section className="section px-2 pb-6">
+      <div className="container">
+        <div className="columns is-desktop is-multiline">
+          <div className="column is-10 is-offset-1 block">
+            <p className="subtitle">Summary</p>
+            <TradesSummary invested={invested} currentVal={currentVal}/>
+          </div>
+          <div className="column is-10 is-offset-1 block">
+            <p className="subtitle">Details</p>
+            <TradesDetails invested={invested} data={data}/>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

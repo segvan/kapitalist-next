@@ -2,9 +2,11 @@ import React from 'react';
 
 function Footer() {
   return (
-    <section className="hero">
-      <div className="hero-body"></div>
-    </section>
+    <footer className="footer">
+      <div className="content has-text-centered">
+        <strong>Kapitalist</strong> all rights reserved.
+      </div>
+    </footer>
   );
 }
 

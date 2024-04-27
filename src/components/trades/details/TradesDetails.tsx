@@ -20,7 +20,7 @@ export default function TradesDetails({data, invested}: TradeHistoryTableProps) 
 
   return (
 
-    <div className="is-overflow-y-hidden">
+    <div className={visible ? "is-overflow-y-hidden" : ""}>
       <table
         className="table is-narrow is-hoverable is-striped"
         onClick={tableClick}

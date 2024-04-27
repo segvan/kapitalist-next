@@ -24,9 +24,7 @@ export default function RootLayout({children,}: { children: React.ReactNode; }) 
     </head>
     <body className={inter.className}>
     <Navbar/>
-    <section className="section py-4 px-2">
       {children}
-    </section>
     <Footer/>
     </body>
     </html>
