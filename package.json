@@ -10,6 +10,7 @@
     "workerBuild": "tsc --project worker.tsconfig.json",
     "buildAll": "npm run build && npm run workerBuild",
     "prod": "node app.js",
+    "vercel": "prisma generate --no-engine && npm run build",
     "pricesBot": "ts-node --skipProject --project worker.tsconfig.json ./src/appWorker/bots/pricesBot.ts",
     "priceChangeBot": "ts-node --skipProject --project worker.tsconfig.json ./src/appWorker/bots/priceChangeBot.ts",
     "tradeHistoryBot": "ts-node --skipProject --project worker.tsconfig.json ./src/appWorker/bots/tradeHistoryBot.ts"
